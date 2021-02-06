@@ -52,7 +52,8 @@ const config = {
                 'style ' + getStyleURL()
             ],
             icon64: getIcon64URL(),
-            updateURL: 'https://raw.githubusercontent.com/Passkou/bilibili-article-md/main/dist/bilibili-article-md.user.js'
+            updateURL: 'https://raw.githubusercontent.com/Passkou/bilibili-article-md/main/dist/bilibili-article-md.user.js',
+            namespace: 'passkou'
         }
     })]
 };
