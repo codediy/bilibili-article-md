@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name        bilibili-article-md
-// @version     0.0.1
+// @version     0.0.2
 // @author      Passkou
-// @description 一个可将特别定制的 Markdown 格式转换成b站专栏格式的油猴脚本
+// @description 一个可将 Markdown 格式转换成b站专栏格式的油猴脚本
 // @homepage    https://github.com/Passkou/bilibili-article-md
 // @supportURL  https://github.com/Passkou/bilibili-article-md/issues
 // @run-at      document-end

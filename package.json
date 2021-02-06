@@ -1,7 +1,7 @@
 {
   "name": "bilibili-article-md",
-  "version": "0.0.1",
-  "description": "一个可将特别定制的 Markdown 格式转换成b站专栏格式的油猴脚本",
+  "version": "0.0.2",
+  "description": "一个可将 Markdown 格式转换成b站专栏格式的油猴脚本",
   "private": true,
   "scripts": {
     "build": "webpack"

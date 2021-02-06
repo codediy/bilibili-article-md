@@ -4,7 +4,7 @@
 
 # bilibili-md-js
 
-一个可将特别定制的 Markdown 格式转换成b站专栏格式的油猴脚本。
+一个可将 Markdown 格式转换成b站专栏格式的油猴脚本
 
 # 特性
 
