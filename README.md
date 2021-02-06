@@ -30,7 +30,7 @@
 
 ## Greasy Fork
 
-1) 进入网址：[]()。
+1) 进入网址：<https://greasyfork.org/zh-CN/scripts/421327-bilibili-article-md>。
 2) 点击 `安装此脚本` 即可安装。
 
 # 用法
