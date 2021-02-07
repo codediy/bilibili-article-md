@@ -2,7 +2,7 @@
 
 项目地址：<https://github.com/Passkou/bilibili-article-md>
 
-# bilibili-md-js
+# bilibili-article-md
 
 一个可将 Markdown 格式转换成b站专栏格式的油猴脚本
 
