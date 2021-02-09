@@ -349,10 +349,14 @@ export async function markToBili(content: string): Promise<string> {
                 return text;
             },
             link(href, title, text) {
-                const t = text || title || '';
+                let t = text || title || '';
                 if (!href) {
                     return '';
                 }
+                // 过滤 t 内容，可能为图片
+                const e = document.createElement('span');
+                e.innerHTML = t;
+                t = e.innerText;
                 if (/https?:\/\/(.+\.)?bilibili\.com(\/.*)?/i.test(href)) {
                     // 站内链接
                     const e = document.createElement('a');

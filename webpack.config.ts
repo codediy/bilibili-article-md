@@ -1,9 +1,10 @@
 
-const webpack = require('webpack');
-const fs = require('fs');
-const package = JSON.parse(fs.readFileSync('package.json', {encoding: 'utf-8'}))
-const path = require('path')
-const WebpackUserscript = require('webpack-userscript')
+import webpack from 'webpack';
+import fs from 'fs';
+const package_ = JSON.parse(fs.readFileSync('package.json', {encoding: 'utf-8'}))
+import path from 'path';
+import WebpackUserscript from 'webpack-userscript';
+import TerserWebpackPlugin from 'terser-webpack-plugin';
 
 function getIcon64URL() {
     const icon = fs.readFileSync('./assets/icon64.png');
@@ -11,19 +12,16 @@ function getIcon64URL() {
 }
 
 function getStyleURL() {
-    return `data:text/css;base64,${Buffer.from(fs.readFileSync('./src/style.css'), 'utf-8').toString('base64')}`
+    return `data:text/css;base64,${fs.readFileSync('./src/style.css').toString('base64')}`
 }
 
+const isDebug: boolean = process.env.NODE_ENV === 'development';
 
-/**
- * @type {webpack.Configuration}
- */
-const config = {
+const config: webpack.Configuration = {
     entry: './src/main.ts',
-    mode: 'production',
     output: {
-        filename: `${package.name}.js`,
-        path: path.resolve(__dirname, './dist')
+        filename: isDebug ? `${package_.name}.dev.js` : `${package_.name}.js`,
+        path: path.resolve(__dirname, isDebug ? './dev' : './dist')
     },
     module: {
         rules: [
@@ -36,14 +34,18 @@ const config = {
     resolve: {
         extensions: ['.ts', '.json', '.js']
     },
+    optimization: {
+        minimizer: [<any>new TerserWebpackPlugin()]
+    },
     plugins: [new WebpackUserscript({
         headers: {
+            name: isDebug ? package_.name + '-dev' : package_.name,
             "run-at": 'document-end',
             include: '*://member.bilibili.com/platform/*',
             grant: [
                 'GM_xmlhttpRequest',
                 'GM_registerMenuCommand',
-                'GM_getResourceURL',,
+                'GM_getResourceURL',
                 'GM_getResourceText',
             ],
             connect: '*',
@@ -57,5 +59,5 @@ const config = {
         }
     })]
 };
-module.exports = config;
+export default config;
 
